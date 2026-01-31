@@ -4,18 +4,45 @@
     <title>Simple Calculator</title>
 </head>
 <body>
+
     <h2>Simple Calculator</h2>
+
     <input id="num1" type="number" placeholder="Number 1">
     <input id="num2" type="number" placeholder="Number 2">
+    <br><br>
+
     <button id="addBtn">Add</button>
+    <button id="subtractBtn">Subtract</button>
+    <button id="multiplyBtn">Multiply</button>
+    <button id="divideBtn">Divide</button>
+
     <p id="result"></p>
 
     <script>
-        document.getElementById('addBtn').onclick = function() {
-            var a = parseInt(document.getElementById('num1').value);
-            var b = parseInt(document.getElementById('num2').value);
+        document.getElementById('addBtn').onclick = function () {
+            let a = parseInt(document.getElementById('num1').value);
+            let b = parseInt(document.getElementById('num2').value);
             document.getElementById('result').innerText = a + b;
         };
+
+        document.getElementById('subtractBtn').onclick = function () {
+            let a = parseInt(document.getElementById('num1').value);
+            let b = parseInt(document.getElementById('num2').value);
+            document.getElementById('result').innerText = a - b;
+        };
+
+        document.getElementById('multiplyBtn').onclick = function () {
+            let a = parseInt(document.getElementById('num1').value);
+            let b = parseInt(document.getElementById('num2').value);
+            document.getElementById('result').innerText = a * b;
+        };
+
+        document.getElementById('divideBtn').onclick = function () {
+            let a = parseInt(document.getElementById('num1').value);
+            let b = parseInt(document.getElementById('num2').value);
+            document.getElementById('result').innerText = a / b;
+        };
     </script>
+
 </body>
 </html>
