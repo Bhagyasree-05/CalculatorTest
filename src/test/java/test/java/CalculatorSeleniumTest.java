@@ -1,31 +1,27 @@
-package test.java;
-
-import org.junit.Assert;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import static org.junit.Assert.assertEquals;
 
 public class CalculatorSeleniumTest {
 
     @Test
     public void testAddition() {
-        System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
-
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        driver.get("file:///C:/path/to/CalculatorTest/calculator.html");
 
-        WebElement num1 = driver.findElement(By.id("num1"));
-        WebElement num2 = driver.findElement(By.id("num2"));
-        WebElement addBtn = driver.findElement(By.id("addBtn"));
-        WebElement result = driver.findElement(By.id("result"));
+        driver.get("file:///C:/ProgramData/Jenkins/.jenkins/workspace/CalculatorTestBuild/calculator.html");
 
-        num1.sendKeys("5");
-        num2.sendKeys("3");
-        addBtn.click();
+        driver.findElement(By.id("num1")).sendKeys("2");
+        driver.findElement(By.id("num2")).sendKeys("3");
+        driver.findElement(By.id("addBtn")).click();
 
-        Assert.assertEquals("8", result.getText());
+        String result = driver.findElement(By.id("result")).getText();
+        assertEquals("5", result);
+
         driver.quit();
     }
 }
